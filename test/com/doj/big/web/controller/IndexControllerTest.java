@@ -11,15 +11,15 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.doj.big.controller.IndexController;
-import com.doj.big.web.config.BigSubexMvcConfig;
+import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
+import com.doj.big.subex.web.controller.IndexController;
 
 /**
  * @author Dinesh.Rajput
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { BigSubexMvcConfig.class })
+@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class })
 @WebAppConfiguration
 public class IndexControllerTest {
 	

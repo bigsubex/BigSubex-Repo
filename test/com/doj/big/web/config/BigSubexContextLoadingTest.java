@@ -11,8 +11,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { BigSubexMvcConfig.class })
+@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class })
 @WebAppConfiguration
 public class BigSubexContextLoadingTest extends AbstractJUnit4SpringContextTests{
 	
