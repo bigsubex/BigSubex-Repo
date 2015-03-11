@@ -18,7 +18,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "com.doj.big" })
+@ComponentScan(basePackages = { "com.doj.big.subex.web" })
 public class BigSubexWebMvcContextConfig extends WebMvcConfigurerAdapter{
 	
 	@Override

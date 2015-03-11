@@ -1,4 +1,4 @@
-package com.doj.big.subex.utils;
+package com.doj.big.subex.web.utils;
 
 /**
  * @author Dinesh.Rajput
