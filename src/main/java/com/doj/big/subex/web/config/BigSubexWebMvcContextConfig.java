@@ -23,10 +23,9 @@ public class BigSubexWebMvcContextConfig extends WebMvcConfigurerAdapter{
 	
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**/*").addResourceLocations("classpath:/META-INF/web-resources/").setCachePeriod(31556926);
-//        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(31556926);
-//        registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/").setCachePeriod(31556926);
-//        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(31556926);
+        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/META-INF/web-resources/js/").setCachePeriod(31556926);
+        registry.addResourceHandler("/images/**").addResourceLocations("classpath:/META-INF/web-resources/images/").setCachePeriod(31556926);
+        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/META-INF/web-resources/css/").setCachePeriod(31556926);
     }
  
     @Override

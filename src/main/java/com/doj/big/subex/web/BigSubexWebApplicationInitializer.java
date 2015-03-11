@@ -10,6 +10,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.doj.big.subex.config.BigSubexApplicationContextConfiguration;
 import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
 
 /**
@@ -51,7 +52,7 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	
 	private void registerListener(ServletContext servletContext) {
 		AnnotationConfigWebApplicationContext rootContext;
-        rootContext = createContext(BigSubexWebMvcContextConfig.class);
+        rootContext = createContext(BigSubexApplicationContextConfiguration.class);
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
     }
