@@ -1,21 +1,12 @@
-rootProject.name = 'BigSubex'
-def String[] modules = [
-    'BigSubex-shared',
-    'BigSubex-web-resources',
-]
-
-include modules
-
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
 
 repositories {
    mavenCentral()
 }
  
 dependencies {
-   compile project(':BigSubex-shared'), project(':BigSubex-web-resources')
    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
    compile 'org.springframework:spring-webmvc:4.0.0.RELEASE'
    compile 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'

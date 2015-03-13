@@ -23,7 +23,6 @@ public class IndexController {
 	
 	@RequestMapping("/index")
 	public ModelAndView index(ModelMap model){
-		model.put("message", "Welcome to BigSubex Project!!!");
 		return new ModelAndView(BigConstant.INDEX);
 	}
 }

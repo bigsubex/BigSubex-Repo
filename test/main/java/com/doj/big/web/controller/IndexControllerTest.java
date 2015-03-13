@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
 import com.doj.big.subex.web.controller.IndexController;
+import com.doj.big.subex.web.utils.BigConstant;
 
 /**
  * @author Dinesh.Rajput
@@ -29,7 +30,14 @@ public class IndexControllerTest {
 	@Test
 	public void testHomePage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get("/")).andExpect(MockMvcResultMatchers.view().name("home"));
+		mockMvc.perform(MockMvcRequestBuilders.get("/")).andExpect(MockMvcResultMatchers.view().name(BigConstant.HOME));
+
+	}
+	
+	@Test
+	public void testIndexPage() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get("/index")).andExpect(MockMvcResultMatchers.view().name(BigConstant.INDEX));
 
 	}
 
