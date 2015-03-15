@@ -4,13 +4,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.Ordered;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.extras.tiles2.dialect.TilesDialect;
+import org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer;
+import org.thymeleaf.extras.tiles2.spring4.web.view.ThymeleafTilesView;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import com.doj.big.subex.web.utils.BigConstant;
 
 /**
  * @author Dinesh.Rajput
@@ -36,33 +43,37 @@ public class BigSubexWebMvcContextConfig extends WebMvcConfigurerAdapter{
     @Bean
     public ServletContextTemplateResolver templateResolver() {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
-        resolver.setPrefix("/WEB-INF/templates/");
+        resolver.setPrefix("/WEB-INF/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
         resolver.setCacheable(false);
         return resolver;
     }
-
+   
     @Bean
     public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setTemplateResolver(templateResolver());
-        return engine;
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.addTemplateResolver(templateResolver());
+        templateEngine.addDialect(new TilesDialect());
+        return templateEngine;
     }
 
     @Bean
-    public ThymeleafViewResolver thymeleafViewResolver() {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine());
-        return resolver;
-    } 
-    /*@Bean
-    public InternalResourceViewResolver jspViewResolver() {
-        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("/WEB-INF/views/");
-        bean.setSuffix(".jsp");
-        return bean;
-    }*/
+    public ViewResolver tilesViewResolver() {
+        ThymeleafViewResolver vr = new ThymeleafViewResolver();
+        vr.setTemplateEngine(templateEngine());
+        vr.setViewClass(ThymeleafTilesView.class);
+        vr.setCharacterEncoding("UTF-8");
+        vr.setOrder(Ordered.LOWEST_PRECEDENCE);
+        return vr;
+    }
+    
+    @Bean
+    public ThymeleafTilesConfigurer tilesConfigurer() {
+        ThymeleafTilesConfigurer ttc = new ThymeleafTilesConfigurer();
+        ttc.setDefinitions(new String[]{BigConstant.TILES});
+        return ttc;
+    }
  
     @Bean(name = "messageSource")
     public ReloadableResourceBundleMessageSource getMessageSource() {

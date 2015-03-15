@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+    <head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title tiles:string="title"></title>
+		<meta name="description" content=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!--
+		Weitere Informationen finden Sie hier:  http://necolas.github.io/normalize.css/
+		-->
+		<link rel="stylesheet" href="/BigSubex/css/normalize.css"/>
+
+		<!--
+		CSS Framework, weitere Informationen: http://foundation.zurb.com/
+		-->
+		<link rel="stylesheet" href="/BigSubex/css/foundation.css" />
+
+		<!--
+		Baumstruktur, weitere Informationen: http://www.jstree.com/
+		Auf der Webseite zu finden: z.B unter http://big.nanoware.de/#/products und dann links bei "Kriterien auswöhlen" bei dem Reiter "Verfarhren"
+		-->
+		<link rel="stylesheet" href="/BigSubex/js/vendor/jstree/themes/default/style.min.css" />
+
+		<!--
+		Angepasste Scrolleiste
+		Weitere Infromationen: http://manos.malihu.gr/jquery-custom-content-scroller/
+		Auf der Webseite zu finden unter: z.B zu finden unter http://big.nanoware.de/#/products unten in dem Bereich "Suche"
+		-->
+		<link rel="stylesheet" href="/BigSubex/css/jquery.mCustomScrollbar.css" />
+
+		<!--
+		jQuery UI ist für spezielle Bedienelemente
+		weitere Informationen: http://jqueryui.com/
+		Auf der Webseite zu finden unter: z.B das Accordion unter http://big.nanoware.de/#/products/old und dann "Produkttabelle"
+		-->
+		<link rel="stylesheet" href="/BigSubex/js/jquery-ui/jquery-ui.css"/>
+		<link rel="stylesheet" href="/BigSubex/js/jquery-ui/jquery-ui.theme.min.css"/>
+
+		<!--
+		CSS File mit dem Layout für die Webseite
+		-->
+		<link rel="stylesheet" href="/BigSubex/css/main.css"/>
+
+		<!--
+		Erkennt ob moderne HTML Features auf dem aktuellen Browser vorhanden sind
+		Weitere Informationen: http://modernizr.com/
+		-->
+		<script src="/BigSubex/js/vendor/modernizr-2.6.2.min.js"></script>
+
+	</head>
+    <body>
+    	<div id="ember221" class="ember-view">
+	    	<header id="header" tiles:replace="header"></header>
+	        <div tiles:replace="content"></div>
+	        <footer id="footer" tiles:replace="footer"></footer>
+        </div>
+        <!--
+		jQuery
+		weitere Informationen: http://jquery.com/
+		-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/BigSubex/js/vendor/jquery-1.10.2.min.js"></script>
+		
+		<script src="/BigSubex/js/plugins.js"></script>
+
+		<!--
+		Plugins von Foundation
+		http://foundation.zurb.com/
+		-->
+		<script src="/BigSubex/js/foundation/foundation.js"></script>
+		<script src="/BigSubex/js/foundation/foundation.topbar.js"></script>
+		<script src="/BigSubex/js/foundation/foundation.orbit.js"></script>
+		<script src="/BigSubex/js/foundation/foundation.dropdown.js"></script>
+		<script src="/BigSubex/js/foundation/foundation.equalizer.js"></script>
+		<script src="/BigSubex/js/foundation/foundation.reveal.js"></script>
+
+		<!--
+		jQueryUI
+		http://jqueryui.com/
+		-->
+		<script src="/BigSubex/js/jquery-ui/jquery-ui.min.js"></script>
+
+		<!--
+		Custom Scrollbar
+		http://manos.malihu.gr/jquery-custom-content-scroller/
+		-->
+		<script src="/BigSubex/js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
+
+		<!--<script src="/js/vendor/jquery.sticky.js"></script>-->
+
+		<!--
+		jsTree
+		http://www.jstree.com/
+		-->
+		<script src="/BigSubex/js/vendor/jstree/jstree.js"></script>
+
+		<!--
+		Applikation
+		-->
+		<script src="/BigSubex/js/app_index.js"></script>
+    </body>
+</html>

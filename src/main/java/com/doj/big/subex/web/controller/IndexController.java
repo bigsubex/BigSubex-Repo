@@ -21,9 +21,19 @@ public class IndexController {
 		return new ModelAndView(BigConstant.HOME);
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping(BigConstant.INDEXPAGE)
 	public ModelAndView index(ModelMap model){
 		return new ModelAndView(BigConstant.INDEX);
+	}
+	
+	@RequestMapping(BigConstant.USERLOGINPAGE)
+	public ModelAndView userLogin(ModelMap model){
+		return new ModelAndView(BigConstant.USERLOGIN);
+	}
+	
+	@RequestMapping(BigConstant.GUESTLOGINPAGE)
+	public ModelAndView guestLogin(ModelMap model){
+		return new ModelAndView(BigConstant.GUESTLOGIN);
 	}
 }
  
