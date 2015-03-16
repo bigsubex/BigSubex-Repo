@@ -34,11 +34,11 @@ public class BigSubexContextLoadingTest extends AbstractJUnit4SpringContextTests
     }
     @Test
     public void testRead() {
-    	  try {
-    URL configFile = this.getClass().getClassLoader().getResource("/WEB-INF/tiles/tiles-defs.xml");
-    Assert.assertNotNull("Config file not found", configFile);
-    	  }catch (Exception e) {
-    		          System.out.println("Exception reading configuration." + e);
-    		        }
+    	try {
+    		URL configFile = this.getClass().getClassLoader().getResource("/WEB-INF/tiles/tiles-defs.xml");
+    		Assert.assertNotNull("Config file not found", configFile);
+    	}catch (Exception e) {
+    		System.out.println("Exception reading configuration." + e);
+    	}
     }
 }

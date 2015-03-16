@@ -4,12 +4,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
 import com.doj.big.subex.web.controller.IndexController;
@@ -20,16 +23,24 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class })
+@ContextHierarchy({
+	@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class }),
+	@ContextConfiguration(locations = "/WEB-INF/tiles/tiles-defs.xml")
+})
 @WebAppConfiguration
 public class IndexControllerTest {
 	
 	@Autowired
 	IndexController indexController;
 	
+	@Autowired
+    private WebApplicationContext context;
+	
+	DefaultMockMvcBuilder<DefaultMockMvcBuilder<?>> mockMvc = MockMvcBuilders.webAppContextSetup(context);
+	
 	@Test
 	public void testHomePage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+ 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ROOTPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.HOME));
 
 	}

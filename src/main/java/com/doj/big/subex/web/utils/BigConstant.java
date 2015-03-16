@@ -10,11 +10,17 @@ public interface BigConstant {
 	String INDEX = "index";
 	String USERLOGIN = "userlogin";
 	String GUESTLOGIN = "guestlogin";
+	String USERSIGNIN = "user.register";
+	String USERCOMPANY = "user.register.company";
+	String EMPLOYEESEDIT = "employees.edit";
 	
 	String ROOTPAGE = "/";
 	String INDEXPAGE = "/index";
 	String USERLOGINPAGE = "/login/user";
 	String GUESTLOGINPAGE = "/login/guest";
+	String USERSIGNINPAGE = "/user/register";
+	String USERCOMPANYPAGE = "/user/register/company";
+	String EMPLOYEESEDITPAGE = "/employees/edit";
 	
 	String IMAGEROOTURL = "images/";
 	String JSROOTURL = "js/";
