@@ -15,7 +15,7 @@ public interface BigConstant {
 	String EMPLOYEESEDIT = "employees.edit";
 	
 	String ROOTPAGE = "/";
-	String INDEXPAGE = "/index";
+	String INDEXPAGE = "/indexc";
 	String USERLOGINPAGE = "/login/user";
 	String GUESTLOGINPAGE = "/login/guest";
 	String USERSIGNINPAGE = "/user/register";
@@ -26,5 +26,5 @@ public interface BigConstant {
 	String JSROOTURL = "js/";
 	String CSSROOTURL = "css/";
 	
-	String TILES = "/WEB-INF/tiles/tiles-defs.xml";
+	String TILES = "classpath:tiles-defs.xml";
 }

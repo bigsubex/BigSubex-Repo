@@ -10,7 +10,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -23,21 +22,21 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextHierarchy({
 	@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class }),
-	@ContextConfiguration(locations = "/WEB-INF/tiles/tiles-defs.xml")
+	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
-@WebAppConfiguration
 public class IndexControllerTest {
 	
 	@Autowired
 	IndexController indexController;
 	
+
 	@Autowired
     private WebApplicationContext context;
 	
-	DefaultMockMvcBuilder<DefaultMockMvcBuilder<?>> mockMvc = MockMvcBuilders.webAppContextSetup(context);
-	
+    
 	@Test
 	public void testHomePage() throws Exception {
  		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
@@ -63,6 +62,27 @@ public class IndexControllerTest {
 	public void testGuestLoginPage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.GUESTLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.GUESTLOGIN));
+
+	}
+	
+	@Test
+	public void testSignInPage() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERSIGNINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERSIGNIN));
+
+	}
+	
+	@Test
+	public void testCompanyRegistrationPage() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERCOMPANYPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERCOMPANY));
+
+	}
+	
+	@Test
+	public void testEmployeeEditPage() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESEDITPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEESEDIT));
 
 	}
 

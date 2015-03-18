@@ -1,7 +1,5 @@
 package com.doj.big.web.config;
 
-import java.net.URL;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -16,29 +14,22 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
 
+@SuppressWarnings("deprecation")
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextHierarchy({
 	@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class }),
-	@ContextConfiguration(locations = "/WEB-INF/tiles/tiles-defs.xml")
+	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
-@WebAppConfiguration
 public class BigSubexContextLoadingTest extends AbstractJUnit4SpringContextTests{
 	
 	@Autowired
     private WebApplicationContext context;
 	
 	
+	
     @Test
     public void testLoading() {
         Assert.assertNotNull(this.context);
-    }
-    @Test
-    public void testRead() {
-    	try {
-    		URL configFile = this.getClass().getClassLoader().getResource("/WEB-INF/tiles/tiles-defs.xml");
-    		Assert.assertNotNull("Config file not found", configFile);
-    	}catch (Exception e) {
-    		System.out.println("Exception reading configuration." + e);
-    	}
     }
 }
