@@ -42,6 +42,13 @@
   	<put-attribute name="content" value="views/editEmployees" type="thymeleaf"></put-attribute>
   </definition>
   
+  <definition name="employees" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Employee List : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/employees" type="thymeleaf"></put-attribute>
+  </definition>
+  
   <definition name="home" template="views/home" templateType="thymeleaf"></definition>
+  
+  <definition name="404" template="errors/404" templateType="thymeleaf"></definition>
   
 </tiles-definitions>

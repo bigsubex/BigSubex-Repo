@@ -82,4 +82,5 @@ public class BigSubexWebMvcContextConfig extends WebMvcConfigurerAdapter{
         resource.setDefaultEncoding("UTF-8");
         return resource;
     }
+    
 }

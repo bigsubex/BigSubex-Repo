@@ -51,5 +51,15 @@ public class IndexController {
 	public ModelAndView employeeRegister(ModelMap model){
 		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
 	}
+	
+	@RequestMapping(value = BigConstant.EMPLOYEESPAGE, method = RequestMethod.GET)
+	public ModelAndView employees(ModelMap model){
+		return new ModelAndView(BigConstant.EMPLOYEES);
+	}
+	
+	@RequestMapping(value = BigConstant.ERRORPAGE, method = RequestMethod.GET)
+	public String error(ModelMap model){
+		return BigConstant.ERROR404;
+	}
 }
  
