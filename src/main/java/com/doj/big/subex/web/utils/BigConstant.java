@@ -14,6 +14,11 @@ public interface BigConstant {
 	String USERCOMPANY = "user.register.company";
 	String EMPLOYEESEDIT = "employees.edit";
 	String EMPLOYEES = "employees";
+	String ADMIN = "user.admin";
+	String PRODUCTOLD = "products.old";
+	String PRODUCTNEW = "products.new";
+	String SUPPLIERSHOW = "supplier.show";
+	String FORGOTPASSWORD = "user.lostpassword";
 	
 	String ERROR404 = "404";
 	String ERRORPAGE = "/*";
@@ -26,6 +31,11 @@ public interface BigConstant {
 	String USERCOMPANYPAGE = "/user/register/company";
 	String EMPLOYEESEDITPAGE = "/employees/edit";
 	String EMPLOYEESPAGE = "/employees";
+	String ADMINPAGE = "/admin";
+	String PRODUCTOLDPAGE = "/products/old";
+	String PRODUCTNEWPAGE = "/products";
+	String SUPPLIERSHOWPAGE = "/supplier/show";
+	String FORGOTPASSWORDPAGE = "/user/lostpassword";
 	
 	String IMAGEROOTURL = "images/";
 	String JSROOTURL = "js/";

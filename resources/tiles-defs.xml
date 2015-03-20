@@ -19,32 +19,57 @@
   
   <definition name="userlogin" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="User Login : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/userLogin" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/login/userLogin" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="guestlogin" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Guest Login : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/guestLogin" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/login/guestLogin" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="user.register" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="User Registration : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/userRegister" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/registration/userRegister" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="user.register.company" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Company Registration : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/companyRegister" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/registration/companyRegister" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="employees.edit" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Employee Registration : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/editEmployees" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/registration/editEmployees" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="employees" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Employee List : Business Information Grid" type="thymeleaf"></put-attribute>
   	<put-attribute name="content" value="views/employees" type="thymeleaf"></put-attribute>
+  </definition>
+  
+   <definition name="user.admin" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Admin Panel : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/admin/admin" type="thymeleaf"></put-attribute>
+  </definition>
+  
+  <definition name="products.old" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Old Products : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/product/oldProducts" type="thymeleaf"></put-attribute>
+  </definition>
+  
+  <definition name="products.new" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="New Products : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/product/products" type="thymeleaf"></put-attribute>
+  </definition>
+  
+  <definition name="supplier.show" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Supplier Show : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/supplier/supplierShow" type="thymeleaf"></put-attribute>
+  </definition>
+  
+  <definition name="user.lostpassword" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Forgot Password : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/login/userLostPassword" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="home" template="views/home" templateType="thymeleaf"></definition>

@@ -57,6 +57,31 @@ public class IndexController {
 		return new ModelAndView(BigConstant.EMPLOYEES);
 	}
 	
+	@RequestMapping(value = BigConstant.ADMINPAGE, method = RequestMethod.GET)
+	public ModelAndView admin(ModelMap model){
+		return new ModelAndView(BigConstant.ADMIN);
+	}
+	
+	@RequestMapping(value = BigConstant.PRODUCTOLDPAGE, method = RequestMethod.GET)
+	public ModelAndView oldProduct(ModelMap model){
+		return new ModelAndView(BigConstant.PRODUCTOLD);
+	}
+
+	@RequestMapping(value = BigConstant.PRODUCTNEWPAGE, method = RequestMethod.GET)
+	public ModelAndView newProduct(ModelMap model){
+		return new ModelAndView(BigConstant.PRODUCTNEW);
+	}
+	
+	@RequestMapping(value = BigConstant.SUPPLIERSHOWPAGE, method = RequestMethod.GET)
+	public ModelAndView supplierShow(ModelMap model){
+		return new ModelAndView(BigConstant.SUPPLIERSHOW);
+	}
+	
+	@RequestMapping(value = BigConstant.FORGOTPASSWORDPAGE, method = RequestMethod.GET)
+	public ModelAndView forgotPassword(ModelMap model){
+		return new ModelAndView(BigConstant.FORGOTPASSWORD);
+	}
+	
 	@RequestMapping(value = BigConstant.ERRORPAGE, method = RequestMethod.GET)
 	public String error(ModelMap model){
 		return BigConstant.ERROR404;
