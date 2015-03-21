@@ -13,7 +13,7 @@ public interface BigConstant {
 	String USERSIGNIN = "user.register";
 	String USERCOMPANY = "user.register.company";
 	String EMPLOYEESEDIT = "employees.edit";
-	String EMPLOYEES = "employees";
+	String EMPLOYEES = "list.employees";
 	String ADMIN = "user.admin";
 	String PRODUCTOLD = "products.old";
 	String PRODUCTNEW = "products.new";

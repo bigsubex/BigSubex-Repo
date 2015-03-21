@@ -86,4 +86,45 @@ public class IndexControllerTest {
 
 	}
 
+	@Test
+	public void testEmployees() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEES));
+
+	}
+	
+	@Test
+	public void testAdminPage() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ADMINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.ADMIN));
+
+	}
+	
+	@Test
+	public void testOldProduct() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTOLDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTOLD));
+
+	}
+	
+	@Test
+	public void testNewProduct() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTNEWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTNEW));
+
+	}
+
+	@Test
+	public void testSupplier() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.SUPPLIERSHOWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.SUPPLIERSHOW));
+
+	}
+	
+	@Test
+	public void testForgotPassword() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.FORGOTPASSWORDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.FORGOTPASSWORD));
+
+	}
 }
