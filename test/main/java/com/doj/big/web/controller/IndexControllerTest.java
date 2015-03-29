@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
+import com.doj.big.subex.web.config.WebMvcContextConfiguration;
 import com.doj.big.subex.web.controller.IndexController;
 import com.doj.big.subex.web.utils.BigConstant;
 
@@ -24,7 +24,7 @@ import com.doj.big.subex.web.utils.BigConstant;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
-	@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class }),
+	@ContextConfiguration(classes = { WebMvcContextConfiguration.class }),
 	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
 public class IndexControllerTest {

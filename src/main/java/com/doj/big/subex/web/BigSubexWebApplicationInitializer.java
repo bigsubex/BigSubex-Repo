@@ -7,11 +7,12 @@ import javax.servlet.ServletRegistration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.doj.big.subex.config.BigSubexApplicationContextConfiguration;
-import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
+import com.doj.big.subex.config.InfrastructureContextConfiguration;
+import com.doj.big.subex.web.config.WebMvcContextConfiguration;
 
 /**
  * {@link WebApplicationInitializer} that will be called by Spring's {@code SpringServletContainerInitializer} as part
@@ -43,7 +44,7 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	}
 
 	private void registerDispatcherServlet(ServletContext servletContext) {
-		AnnotationConfigWebApplicationContext dispatcherContext = createContext(BigSubexWebMvcContextConfig.class);
+		WebApplicationContext dispatcherContext = createContext(WebMvcContextConfiguration.class);
         DispatcherServlet dispatcherServlet = new DispatcherServlet(dispatcherContext);
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
         dispatcher.setLoadOnStartup(1);
@@ -52,7 +53,7 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	
 	private void registerListener(ServletContext servletContext) {
 		AnnotationConfigWebApplicationContext rootContext;
-        rootContext = createContext(BigSubexApplicationContextConfiguration.class);
+        rootContext = createContext(InfrastructureContextConfiguration.class);
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
     }

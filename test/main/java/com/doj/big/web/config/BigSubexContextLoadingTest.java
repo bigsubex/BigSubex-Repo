@@ -12,13 +12,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.doj.big.subex.web.config.BigSubexWebMvcContextConfig;
+import com.doj.big.subex.web.config.WebMvcContextConfiguration;
 
 @SuppressWarnings("deprecation")
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
-	@ContextConfiguration(classes = { BigSubexWebMvcContextConfig.class }),
+	@ContextConfiguration(classes = { WebMvcContextConfiguration.class }),
 	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
 public class BigSubexContextLoadingTest extends AbstractJUnit4SpringContextTests{

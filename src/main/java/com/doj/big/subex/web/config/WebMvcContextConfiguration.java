@@ -26,7 +26,7 @@ import com.doj.big.subex.web.utils.BigConstant;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "com.doj.big.subex.web" })
-public class BigSubexWebMvcContextConfig extends WebMvcConfigurerAdapter{
+public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
