@@ -6,23 +6,31 @@
 		<div class="content panel">
 			<h3 class="productshead">Login User</h3>
 			<br/>
-			<form class="validate">
+			<form class="validate userlogin" id="userlogin" action="/BigSubex/login/user" method="post">
 				<div class="row">
 					<fieldset class="small-12 medium-8 large-7 medium-centered columns">
 						<h5 class="headline"> Melden Sie sich an. </h5>
 						<div class="small-12 medium-10 medium-centered columns">
 							<div class="row">
-								<div class="small-12 columns">
-									<input type="text" placeholder="E-Mail Adresse"/>
+								<div style="border: 1px red solid; padding: 5px; color: red;" th:text="${errorMessage}" th:if="${errorMessage != null}">
 								</div>
 								<div class="small-12 columns">
-									<input type="password" placeholder="Passwort"/>
+									<input type="text" placeholder="E-Mail Adresse" id="email" name="username"/>
+									<div style="border: 1px red solid; padding: 5px; color: red;display: none;" id="emailError">
+									  FEHLERMELDUNG
+									</div>
 								</div>
 								<div class="small-12 columns">
-								    <input type="checkbox" /> Remember me
+									<input type="password" placeholder="Passwort" id="password" name="password"/>
+									<div style="border: 1px red solid; padding: 5px; color: red;display: none;" id="passwordError">
+									  FEHLERMELDUNG
+									</div>
 								</div>
 								<div class="small-12 columns">
-									<a id="ember612" class="ember-view button" href="#/">Login</a>
+								    <input type="checkbox" id="remember" name="rememberMe"/> Remember me
+								</div>
+								<div class="small-12 columns">
+									<a id="ember612" class="ember-view button" href="javascript:void(0);">Login</a>
 								</div>
 								<div class="small-12 columns">
 									<input type="checkbox"/>
@@ -43,3 +51,48 @@
 <div id="contentline" class="show-for-large-up"></div>
 </div>
 </section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$('.userlogin').on('click', '#ember612', function(){
+		var username = $('#email').val();
+		var password = $('#password').val();
+		var validate = true;
+		if(!username){
+			$('#emailError').text('Enter email');
+			$('#emailError').css('display', 'block');
+			validate = false;
+		}else if(validateEmail(username)){
+			$('#emailError').text('');
+			$('#emailError').css('display', 'none');
+		}else{
+			$('#emailError').text('Enter correct email');
+			$('#emailError').css('display', 'block');
+			validate = false;
+		}
+		if(!password){
+			$('#passwordError').text('Enter password');
+			$('#passwordError').css('display', 'block');
+			validate = false;
+		}else{
+			$('#passwordError').text('');
+			$('#passwordError').css('display', 'none');
+		}
+		if(validate){
+			$("#userlogin").submit();
+		}else{
+			return false;
+		}
+	});
+});
+
+function validateEmail(sEmail) {
+	var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if (filter.test(sEmail)) {
+		return true;
+	}else {
+		return false;
+	}
+}
+</script>

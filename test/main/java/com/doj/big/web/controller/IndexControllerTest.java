@@ -32,7 +32,6 @@ public class IndexControllerTest {
 	@Autowired
 	IndexController indexController;
 	
-
 	@Autowired
     private WebApplicationContext context;
 	
@@ -48,20 +47,6 @@ public class IndexControllerTest {
 	public void testIndexPage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.INDEXPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.INDEX));
-
-	}
-	
-	@Test
-	public void testUserLoginPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERLOGIN));
-
-	}
-	
-	@Test
-	public void testGuestLoginPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.GUESTLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.GUESTLOGIN));
 
 	}
 	

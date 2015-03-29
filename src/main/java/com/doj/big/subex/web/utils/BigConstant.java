@@ -25,7 +25,10 @@ public interface BigConstant {
 	
 	String ROOTPAGE = "/";
 	String INDEXPAGE = "/indexc";
+	String USER = "/user";
+	String LOGINPAGE = "/login";
 	String USERLOGINPAGE = "/login/user";
+	String GUEST = "/guest";
 	String GUESTLOGINPAGE = "/login/guest";
 	String USERSIGNINPAGE = "/user/register";
 	String USERCOMPANYPAGE = "/user/register/company";

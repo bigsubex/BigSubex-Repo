@@ -27,16 +27,6 @@ public class IndexController {
 		return new ModelAndView(BigConstant.INDEX);
 	}
 	
-	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.GET)
-	public ModelAndView userLogin(ModelMap model){
-		return new ModelAndView(BigConstant.USERLOGIN);
-	}
-	
-	@RequestMapping(value = BigConstant.GUESTLOGINPAGE, method = RequestMethod.GET)
-	public ModelAndView guestLogin(ModelMap model){
-		return new ModelAndView(BigConstant.GUESTLOGIN);
-	}
-	
 	@RequestMapping(value = BigConstant.USERSIGNINPAGE, method = RequestMethod.GET)
 	public ModelAndView userRegister(ModelMap model){
 		return new ModelAndView(BigConstant.USERSIGNIN);
