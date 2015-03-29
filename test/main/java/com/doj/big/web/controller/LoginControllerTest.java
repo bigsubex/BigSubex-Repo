@@ -38,7 +38,7 @@ import com.doj.big.subex.web.utils.BigConstant;
 })
 public class LoginControllerTest {
 	
-	@Autowired
+	@Autowired 
 	LoginController loginController;
 	
 	@Test

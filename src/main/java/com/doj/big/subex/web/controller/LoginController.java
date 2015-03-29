@@ -41,7 +41,7 @@ public class LoginController {
 			@RequestParam String password,
 			@RequestParam(required = false) boolean rememberMe,
 			RedirectAttributes redirect,
-			HttpSession session) throws AuthenticationException{
+			HttpSession session) throws AuthenticationException{ 
 		
 		 String url = (String) session.getAttribute(REQUESTED_URL);
 	     session.removeAttribute(REQUESTED_URL); 
