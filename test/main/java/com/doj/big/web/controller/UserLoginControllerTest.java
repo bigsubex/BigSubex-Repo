@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.doj.big.subex.domain.Account;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
-import com.doj.big.subex.web.controller.LoginController;
+import com.doj.big.subex.web.controller.UserLoginController;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -36,22 +36,15 @@ import com.doj.big.subex.web.utils.BigConstant;
 	@ContextConfiguration(classes = { WebMvcContextConfiguration.class }),
 	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
-public class LoginControllerTest {
+public class UserLoginControllerTest {
 	
 	@Autowired 
-	LoginController loginController;
+	UserLoginController userLoginController;
 	
 	@Test
 	public void testUserLoginPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERLOGIN));
-
-	}
-	
-	@Test
-	public void testGuestLoginPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.GUESTLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.GUESTLOGIN));
 
 	}
 	
@@ -60,26 +53,26 @@ public class LoginControllerTest {
     public void testHandleLogin() throws AuthenticationException {
 
         MockHttpSession mockHttpSession = new MockHttpSession();
-        mockHttpSession.setAttribute(LoginController.REQUESTED_URL, "/indexc");
+        mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "/indexc");
 
-        String view = this.loginController.handleUserLogin(null, "shanker@gmail.com", "shanker", false, null, mockHttpSession);
+        String view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
 
-        Account account = (Account) mockHttpSession.getAttribute(LoginController.ACCOUNT_ATTRIBUTE);
+        Account account = (Account) mockHttpSession.getAttribute(UserLoginController.ACCOUNT_ATTRIBUTE);
 
         assertNotNull(account);
         assertEquals("shanker@gmail.com", account.getEmail());
         assertEquals("shanker", account.getPassword());
-        assertNull(mockHttpSession.getAttribute(LoginController.REQUESTED_URL));
+        assertNull(mockHttpSession.getAttribute(UserLoginController.REQUESTED_URL));
         assertEquals("redirect:/indexc", view);
 
         // Test the different view selection choices
         mockHttpSession = new MockHttpSession();
-        view = this.loginController.handleUserLogin(null, "shanker@gmail.com", "shanker", false, null, mockHttpSession);
+        view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
 
         mockHttpSession = new MockHttpSession();
-        mockHttpSession.setAttribute(LoginController.REQUESTED_URL, "abclogindef");
-        view = this.loginController.handleUserLogin(null, "shanker@gmail.com", "shanker", false, null, mockHttpSession);
+        mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "abclogindef");
+        view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
     }
 }
