@@ -39,7 +39,7 @@
   
   <definition name="employees.edit" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Employee Registration : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/registration/editEmployees" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/registration/employeeRegister" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="list.employees" extends="mainTemplate" templateType="thymeleaf">
