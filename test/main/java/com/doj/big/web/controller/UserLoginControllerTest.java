@@ -7,10 +7,8 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,8 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.doj.big.subex.domain.Account;
-import com.doj.big.subex.domain.User;
-import com.doj.big.subex.domain.support.UserBuilder;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
 import com.doj.big.subex.web.controller.UserLoginController;
@@ -76,7 +72,7 @@ public class UserLoginControllerTest {
         Account account = (Account) mockHttpSession.getAttribute(UserLoginController.ACCOUNT_ATTRIBUTE);
 
         assertNotNull(account);
-        assertEquals("shanker@gmail.com", account.getEmail());
+        assertEquals("shanker@gmail.com", account.getEmailAddress());
         assertEquals("shanker", account.getPassword());
         assertNull(mockHttpSession.getAttribute(UserLoginController.REQUESTED_URL));
         assertEquals("redirect:/indexc", view);

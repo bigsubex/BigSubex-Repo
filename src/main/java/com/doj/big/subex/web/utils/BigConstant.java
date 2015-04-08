@@ -31,8 +31,8 @@ public interface BigConstant {
 	String GUEST = "/guest";
 	String GUESTLOGINPAGE = "/login/guest";
 	String USERSIGNINPAGE = "/user/register";
-	String USERCOMPANYPAGE = "/user/register/company";
-	String EMPLOYEESEDITPAGE = "/employees/edit";
+	String USERCOMPANYPAGE = "/company/register";
+	String EMPLOYEEREGISTRATIONPAGE = "/employee/register";
 	String EMPLOYEESPAGE = "/employees";
 	String ADMINPAGE = "/admin";
 	String PRODUCTOLDPAGE = "/products/old";

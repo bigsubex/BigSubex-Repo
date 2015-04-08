@@ -51,27 +51,6 @@ public class IndexControllerTest {
 	}
 	
 	@Test
-	public void testSignInPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERSIGNINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERSIGNIN));
-
-	}
-	
-	@Test
-	public void testCompanyRegistrationPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERCOMPANYPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERCOMPANY));
-
-	}
-	
-	@Test
-	public void testEmployeeEditPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESEDITPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEESEDIT));
-
-	}
-
-	@Test
 	public void testEmployees() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEES));

@@ -20,7 +20,5 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/BigSubex-shared"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/BigSubex-web-resources"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -27,6 +27,10 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import com.doj.big.subex.repository.AccountRepository;
+import com.doj.big.subex.repository.JpaAccountRepository;
+import com.doj.big.subex.service.AccountService;
+import com.doj.big.subex.service.AccountServiceImpl;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -133,4 +137,13 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
         return resource;
     }
     
+    @Bean
+	public AccountService getAccountService() {
+		return new AccountServiceImpl();
+	}
+    
+    @Bean
+   	public AccountRepository getAccountRepository() {
+   		return new JpaAccountRepository();
+   	}
 }

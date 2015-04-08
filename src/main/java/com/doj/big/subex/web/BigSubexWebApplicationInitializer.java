@@ -1,10 +1,15 @@
 package com.doj.big.subex.web;
 
+import java.util.EnumSet;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
@@ -12,6 +17,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 import com.doj.big.subex.config.InfrastructureContextConfiguration;
+import com.doj.big.subex.config.TestDataContextConfiguration;
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
 
 /**
@@ -41,6 +47,7 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		registerListener(servletContext);
 		registerDispatcherServlet(servletContext);
+		registerOpenEntityManagerInViewFilter(servletContext);
 	}
 
 	private void registerDispatcherServlet(ServletContext servletContext) {
@@ -53,7 +60,8 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	
 	private void registerListener(ServletContext servletContext) {
 		AnnotationConfigWebApplicationContext rootContext;
-        rootContext = createContext(InfrastructureContextConfiguration.class);
+        rootContext = createContext(InfrastructureContextConfiguration.class,
+				TestDataContextConfiguration.class);
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
     }
@@ -67,4 +75,11 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
         context.register(annotatedClasses);
         return context;
     }
+    
+    private void registerOpenEntityManagerInViewFilter(ServletContext servletContext) {
+		FilterRegistration.Dynamic registration = servletContext.addFilter("openEntityManagerInView",
+				new OpenEntityManagerInViewFilter());
+		registration.addMappingForServletNames(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD), true,
+				DISPATCHER_SERVLET_NAME);
+	}
 }

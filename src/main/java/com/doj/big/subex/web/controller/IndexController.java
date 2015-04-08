@@ -19,27 +19,12 @@ public class IndexController {
 	@RequestMapping(BigConstant.ROOTPAGE)
 	public ModelAndView home(ModelMap model){
 		model.put("message", "Welcome to BigSubex Project!!!");
-		return new ModelAndView(BigConstant.HOME);
+		return new ModelAndView(BigConstant.INDEX);
 	}
 	
 	@RequestMapping(value = BigConstant.INDEXPAGE, method = RequestMethod.GET)
 	public ModelAndView index(ModelMap model){
 		return new ModelAndView(BigConstant.INDEX);
-	}
-	
-	@RequestMapping(value = BigConstant.USERSIGNINPAGE, method = RequestMethod.GET)
-	public ModelAndView userRegister(ModelMap model){
-		return new ModelAndView(BigConstant.USERSIGNIN);
-	}
-	
-	@RequestMapping(value = BigConstant.USERCOMPANYPAGE, method = RequestMethod.GET)
-	public ModelAndView companyRegister(ModelMap model){
-		return new ModelAndView(BigConstant.USERCOMPANY);
-	}
-	
-	@RequestMapping(value = BigConstant.EMPLOYEESEDITPAGE, method = RequestMethod.GET)
-	public ModelAndView employeeRegister(ModelMap model){
-		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
 	}
 	
 	@RequestMapping(value = BigConstant.EMPLOYEESPAGE, method = RequestMethod.GET)
