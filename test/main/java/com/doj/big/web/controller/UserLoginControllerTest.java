@@ -67,7 +67,7 @@ public class UserLoginControllerTest {
         MockHttpSession mockHttpSession = new MockHttpSession();
         mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "/indexc");
 
-        String view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
+        String view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
 
         Account account = (Account) mockHttpSession.getAttribute(UserLoginController.ACCOUNT_ATTRIBUTE);
 
@@ -79,12 +79,12 @@ public class UserLoginControllerTest {
 
         // Test the different view selection choices
         mockHttpSession = new MockHttpSession();
-        view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
+        view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
 
         mockHttpSession = new MockHttpSession();
         mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "/indexc");
-        view = this.userLoginController.handleUserLogin(null, "shanker@gmail.com", "shanker", null, mockHttpSession);
+        view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
     }
 }

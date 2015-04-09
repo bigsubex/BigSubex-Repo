@@ -51,7 +51,7 @@ public class BigSubexWebApplicationInitializer implements WebApplicationInitiali
 	}
 
 	private void registerDispatcherServlet(ServletContext servletContext) {
-		WebApplicationContext dispatcherContext = createContext(WebMvcContextConfiguration.class);
+		AnnotationConfigWebApplicationContext dispatcherContext = createContext(WebMvcContextConfiguration.class);
         DispatcherServlet dispatcherServlet = new DispatcherServlet(dispatcherContext);
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
         dispatcher.setLoadOnStartup(1);

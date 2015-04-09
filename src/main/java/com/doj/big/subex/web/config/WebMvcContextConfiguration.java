@@ -3,6 +3,8 @@ package com.doj.big.subex.web.config;
 import java.util.List;
 import java.util.Properties;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.annotation.Bean;
@@ -10,6 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.Ordered;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -31,6 +36,9 @@ import com.doj.big.subex.repository.AccountRepository;
 import com.doj.big.subex.repository.JpaAccountRepository;
 import com.doj.big.subex.service.AccountService;
 import com.doj.big.subex.service.AccountServiceImpl;
+import com.doj.big.subex.web.interceptor.CommonDataInterceptor;
+import com.doj.big.subex.web.interceptor.SecurityHandlerInterceptor;
+import com.doj.big.subex.web.method.support.SessionAttributeProcessor;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -48,7 +56,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	}
 	
 	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
+	public void addInterceptors(final InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
@@ -58,14 +66,14 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	}
 	
 	@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/js/**").addResourceLocations("classpath:/META-INF/web-resources/js/").setCachePeriod(31556926);
         registry.addResourceHandler("/images/**").addResourceLocations("classpath:/META-INF/web-resources/images/").setCachePeriod(31556926);
         registry.addResourceHandler("/css/**").addResourceLocations("classpath:/META-INF/web-resources/css/").setCachePeriod(31556926);
     }
  
     @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+    public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
     
@@ -138,6 +146,31 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
     }
     
     @Bean
+	public CommonDataInterceptor commonDataHandlerInterceptor() {
+		return new CommonDataInterceptor();
+	}
+
+	@Bean
+	public SecurityHandlerInterceptor securityHandlerInterceptor() {
+		return new SecurityHandlerInterceptor();
+	}
+
+	@Bean
+	public SessionAttributeProcessor sessionAttributeProcessor() {
+		return new SessionAttributeProcessor();
+	}
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(sessionAttributeProcessor());
+	}
+
+	@Override
+	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
+		returnValueHandlers.add(sessionAttributeProcessor());
+	}
+	
+    @Bean
 	public AccountService getAccountService() {
 		return new AccountServiceImpl();
 	}
@@ -146,4 +179,14 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
    	public AccountRepository getAccountRepository() {
    		return new JpaAccountRepository();
    	}
+    
+    @Bean
+    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
+        return entityManagerFactory.createEntityManager();
+    }
+    
+    /*@Bean
+   	public EntityManagerFactory getEntityManagerFactory() {
+   		return new LocalContainerEntityManagerFactoryBean();
+   	}*/
 }
