@@ -3,12 +3,20 @@
  */
 package com.doj.big.subex.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doj.big.subex.domain.User;
+import com.doj.big.subex.validator.UserValidator;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -24,8 +32,17 @@ public class UserRegistrationController {
 		return new ModelAndView(BigConstant.USERSIGNIN);
 	}
 	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields("id");
+        binder.setValidator(new UserValidator());
+    }
+	
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView handleUserRegistration(ModelMap model){
-		return new ModelAndView(BigConstant.USERSIGNIN);
+	public ModelAndView handleUserRegistration(@Valid @ModelAttribute User user, BindingResult result){
+		if (result.hasErrors()) {
+			return new ModelAndView(BigConstant.USERSIGNIN);
+        }
+		return new ModelAndView(BigConstant.USERCOMPANY);
 	}
 }
