@@ -21,19 +21,23 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @Controller
-@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE)
 public class EmployeeRegistrationController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE, method = RequestMethod.GET)
 	public ModelAndView employeeRegistration(ModelMap model){
 		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE, method = RequestMethod.POST)
 	public ModelAndView handleEmployeeRegistration(@Valid @ModelAttribute Employee employee, BindingResult result){
 		if (result.hasErrors()) {
 			return new ModelAndView(BigConstant.EMPLOYEESEDIT);
 		}
+		return new ModelAndView(BigConstant.EMPLOYEES);
+	}
+	
+	@RequestMapping(value = BigConstant.EMPLOYEESPAGE, method = RequestMethod.GET)
+	public ModelAndView employees(ModelMap model){
 		return new ModelAndView(BigConstant.EMPLOYEES);
 	}
 }

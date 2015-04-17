@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.doj.big.web.controller;
 
 import org.junit.Test;
@@ -14,7 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
-import com.doj.big.subex.web.controller.IndexController;
+import com.doj.big.subex.web.controller.ProductDocumentController;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -27,68 +30,32 @@ import com.doj.big.subex.web.utils.BigConstant;
 	@ContextConfiguration(classes = { WebMvcContextConfiguration.class }),
 	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
-public class IndexControllerTest {
+public class ProductDocumentControllerTest {
 	
 	@Autowired
-	IndexController indexController;
+	ProductDocumentController productDocumentController;
 	
 	@Autowired
     private WebApplicationContext context;
 	
-    
-	@Test
-	public void testHomePage() throws Exception {
- 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ROOTPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.HOME));
-
-	}
-	
-	@Test
-	public void testIndexPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.INDEXPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.INDEX));
-
-	}
-	
-	@Test
-	public void testEmployees() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEES));
-
-	}
-	
-	@Test
-	public void testAdminPage() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ADMINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.ADMIN));
-
-	}
-	
 	@Test
 	public void testOldProduct() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTOLDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTOLD));
 
 	}
 	
 	@Test
 	public void testNewProduct() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTNEWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTNEW));
 
 	}
 
 	@Test
 	public void testSupplier() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.SUPPLIERSHOWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.SUPPLIERSHOW));
-
-	}
-	
-	@Test
-	public void testForgotPassword() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.FORGOTPASSWORDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.FORGOTPASSWORD));
 
 	}
 }

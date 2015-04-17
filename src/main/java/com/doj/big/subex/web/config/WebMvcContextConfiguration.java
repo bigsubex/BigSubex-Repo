@@ -12,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.Ordered;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -53,6 +52,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	@Override
 	public void addViewControllers(final ViewControllerRegistry registry) {
 		registry.addViewController(BigConstant.INDEXPAGE).setViewName(BigConstant.INDEX);
+		registry.addViewController(BigConstant.ROOTPAGE).setViewName(BigConstant.INDEX);
 	}
 	
 	@Override

@@ -40,4 +40,11 @@ public class EmployeeRegistrationControllerTest {
 		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEEREGISTRATIONPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEESEDIT));
 
 	}
+	
+	@Test
+	public void testEmployees() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(employeeRegistrationController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEESPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEES));
+
+	}
 }

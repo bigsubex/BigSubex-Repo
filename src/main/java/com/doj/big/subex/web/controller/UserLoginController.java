@@ -25,7 +25,6 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @Controller
-@RequestMapping(value = BigConstant.USERLOGINPAGE)
 public class UserLoginController {
 	
 	public static final String ACCOUNT_ATTRIBUTE = "account";
@@ -34,12 +33,12 @@ public class UserLoginController {
 	 @Autowired
 	 private AccountService accountService;
 	 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.GET)
 	public ModelAndView userLogin(ModelMap model, HttpSession session){
 		return new ModelAndView(BigConstant.USERLOGIN);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.POST)
 	public String handleUserLogin(ModelMap model,
 			@RequestParam String username,
 			@RequestParam String password,
@@ -55,5 +54,10 @@ public class UserLoginController {
 	     }else{
 	    	 return "redirect:"+BigConstant.INDEXPAGE;
 	     }
+	}
+	
+	@RequestMapping(value = BigConstant.FORGOTPASSWORDPAGE, method = RequestMethod.GET)
+	public ModelAndView forgotPassword(ModelMap model){
+		return new ModelAndView(BigConstant.FORGOTPASSWORD);
 	}
 }

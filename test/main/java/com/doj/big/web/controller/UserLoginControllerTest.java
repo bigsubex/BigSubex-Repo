@@ -87,4 +87,12 @@ public class UserLoginControllerTest {
         view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
     }
+	
+	@Test
+	public void testForgotPassword() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.FORGOTPASSWORDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.FORGOTPASSWORD));
+
+	}
+	
 }
