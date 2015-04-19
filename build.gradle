@@ -44,7 +44,10 @@ dependencies {
    compile "org.hibernate:hibernate-core:$hibernateVersion"
    compile "org.hibernate:hibernate-ehcache:$hibernateVersion"
    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
-   compile "net.sf.ehcache:ehcache:$ehCacheVersion"
+   compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final"
+   compile "commons-dbcp:commons-dbcp:1.4"
+   compile "mysql:mysql-connector-java:5.0.8"
+
         
    testCompile group: 'org.springframework', name: 'spring-test', version: '3.2.3.RELEASE'
    testCompile group: 'junit', name: 'junit', version: '4.11'

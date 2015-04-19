@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.doj.big.subex.config.TestDataContextConfiguration;
 import com.doj.big.subex.domain.Account;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;

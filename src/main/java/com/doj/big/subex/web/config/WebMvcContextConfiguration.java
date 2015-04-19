@@ -3,8 +3,6 @@ package com.doj.big.subex.web.config;
 import java.util.List;
 import java.util.Properties;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.annotation.Bean;
@@ -180,10 +178,10 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
    		return new JpaAccountRepository();
    	}
     
-    @Bean
+    /*@Bean
     public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
         return entityManagerFactory.createEntityManager();
-    }
+    }*/
     
     /*@Bean
    	public EntityManagerFactory getEntityManagerFactory() {
