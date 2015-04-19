@@ -24,6 +24,7 @@ public class IndexController {
 	
 	@RequestMapping(value = BigConstant.INDEXPAGE, method = RequestMethod.GET)
 	public ModelAndView index(ModelMap model){
+		model.put("contextRoot", BigConstant.CONTEXTROOT);
 		return new ModelAndView(BigConstant.INDEX);
 	}
 	

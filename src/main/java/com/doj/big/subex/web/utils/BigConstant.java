@@ -42,5 +42,10 @@ public interface BigConstant {
 	String JSROOTURL = "js/";
 	String CSSROOTURL = "css/";
 	
+	//Local development
+	String CONTEXTROOT = "/BigSubex";
+	//For Production
+	//String CONTEXTROOT = "/BigSubex";
+	
 	String TILES = "classpath:tiles-defs.xml";
 }
