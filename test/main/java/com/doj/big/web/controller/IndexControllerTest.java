@@ -39,7 +39,7 @@ public class IndexControllerTest {
 	@Test
 	public void testHomePage() throws Exception {
  		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ROOTPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.HOME));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.ROOTPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.INDEX));
 
 	}
 	

@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.doj.big.subex.config.TestDataContextConfiguration;
 import com.doj.big.subex.domain.Account;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
@@ -68,24 +67,24 @@ public class UserLoginControllerTest {
         MockHttpSession mockHttpSession = new MockHttpSession();
         mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "/indexc");
 
-        String view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
+        String view = this.userLoginController.handleUserLogin(null, "dinesh", "rajput", null, mockHttpSession);
 
         Account account = (Account) mockHttpSession.getAttribute(UserLoginController.ACCOUNT_ATTRIBUTE);
 
         assertNotNull(account);
-        assertEquals("shanker@gmail.com", account.getEmailAddress());
-        assertEquals("shanker", account.getPassword());
+        assertEquals("dinesh", account.getUsername());
+        assertEquals("rajput", account.getPassword());
         assertNull(mockHttpSession.getAttribute(UserLoginController.REQUESTED_URL));
         assertEquals("redirect:/indexc", view);
 
         // Test the different view selection choices
         mockHttpSession = new MockHttpSession();
-        view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
+        view = this.userLoginController.handleUserLogin(null, "dinesh", "rajput", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
 
         mockHttpSession = new MockHttpSession();
         mockHttpSession.setAttribute(UserLoginController.REQUESTED_URL, "/indexc");
-        view = this.userLoginController.handleUserLogin(null, "jd", "secret", null, mockHttpSession);
+        view = this.userLoginController.handleUserLogin(null, "dinesh", "rajput", null, mockHttpSession);
         assertEquals("redirect:/indexc", view);
     }
 	
