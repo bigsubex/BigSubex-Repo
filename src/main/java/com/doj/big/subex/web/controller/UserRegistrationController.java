@@ -3,6 +3,8 @@
  */
 package com.doj.big.subex.web.controller;
 
+import java.util.Locale;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,13 @@ public class UserRegistrationController {
     public void initBinder(WebDataBinder binder) {
         binder.setDisallowedFields("id");
         binder.setValidator(new UserValidator());
+    }
+	
+   // @ModelAttribute
+    public User register(Locale currentLocale) {
+		User user = new User();
+		user.setCountry(currentLocale.getCountry());
+        return user;
     }
 	
 	@RequestMapping(method = RequestMethod.POST)

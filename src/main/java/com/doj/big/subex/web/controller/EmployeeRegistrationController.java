@@ -8,12 +8,15 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.doj.big.subex.domain.Employee;
+import com.doj.big.subex.validator.EmployeeValidator;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -22,6 +25,12 @@ import com.doj.big.subex.web.utils.BigConstant;
  */
 @Controller
 public class EmployeeRegistrationController {
+	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields("id");
+        binder.setValidator(new EmployeeValidator());
+    }
 	
 	@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE, method = RequestMethod.GET)
 	public ModelAndView employeeRegistration(ModelMap model){
