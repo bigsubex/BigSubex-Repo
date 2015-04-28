@@ -29,10 +29,10 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-import com.doj.big.subex.repository.AccountRepository;
-import com.doj.big.subex.repository.JpaAccountRepository;
-import com.doj.big.subex.service.AccountService;
-import com.doj.big.subex.service.AccountServiceImpl;
+import com.doj.big.subex.repository.EmployeeRepository;
+import com.doj.big.subex.repository.JpaEmployeeRepository;
+import com.doj.big.subex.service.LoginService;
+import com.doj.big.subex.service.LoginServiceImpl;
 import com.doj.big.subex.web.interceptor.CommonDataInterceptor;
 import com.doj.big.subex.web.interceptor.SecurityHandlerInterceptor;
 import com.doj.big.subex.web.method.support.SessionAttributeProcessor;
@@ -169,13 +169,13 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	}
 	
     @Bean
-	public AccountService getAccountService() {
-		return new AccountServiceImpl();
+	public LoginService getLoginService() {
+		return new LoginServiceImpl();
 	}
     
     @Bean
-   	public AccountRepository getAccountRepository() {
-   		return new JpaAccountRepository();
+   	public EmployeeRepository getEmployeeRepository() {
+   		return new JpaEmployeeRepository();
    	}
     
     /*@Bean

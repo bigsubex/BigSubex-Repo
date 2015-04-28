@@ -19,7 +19,7 @@ public class SecurityHandlerInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Account account = (Account) WebUtils.getSessionAttribute(request, UserLoginController.ACCOUNT_ATTRIBUTE);
+        Account account = (Account) WebUtils.getSessionAttribute(request, UserLoginController.EMPLOYEE_ATTRIBUTE);
         if (account == null) {
 
             //Retrieve and store the original URL.

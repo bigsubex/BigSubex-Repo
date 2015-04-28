@@ -69,7 +69,7 @@ public class UserLoginControllerTest {
 
         String view = this.userLoginController.handleUserLogin(null, "dinesh", "rajput", null, mockHttpSession);
 
-        Account account = (Account) mockHttpSession.getAttribute(UserLoginController.ACCOUNT_ATTRIBUTE);
+        Account account = (Account) mockHttpSession.getAttribute(UserLoginController.EMPLOYEE_ATTRIBUTE);
 
         assertNotNull(account);
         assertEquals("dinesh", account.getUsername());

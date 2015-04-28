@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.doj.big.subex.domain.Account;
-import com.doj.big.subex.service.AccountService;
+import com.doj.big.subex.service.LoginService;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.utils.BigConstant;
 
@@ -27,11 +27,11 @@ import com.doj.big.subex.web.utils.BigConstant;
 @Controller
 public class UserLoginController {
 	
-	public static final String ACCOUNT_ATTRIBUTE = "account";
+	public static final String EMPLOYEE_ATTRIBUTE = "employee";
 	public static final String REQUESTED_URL = "REQUESTED_URL";
 	
 	 @Autowired
-	 private AccountService accountService;
+	 private LoginService loginService;
 	 
 	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.GET)
 	public ModelAndView userLogin(ModelMap model, HttpSession session){
@@ -40,15 +40,15 @@ public class UserLoginController {
 	
 	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.POST)
 	public String handleUserLogin(ModelMap model,
-			@RequestParam String username,
+			@RequestParam String email,
 			@RequestParam String password,
 			RedirectAttributes redirect,
 			HttpSession session) throws AuthenticationException{ 
 		
 		 String url = (String) session.getAttribute(REQUESTED_URL);
 	     session.removeAttribute(REQUESTED_URL); 
-	     Account account = this.accountService.login(username, password);
-	     session.setAttribute(ACCOUNT_ATTRIBUTE, account);
+	     Account account = this.loginService.login(email, password);
+	     session.setAttribute(EMPLOYEE_ATTRIBUTE, account);
 	     if(StringUtils.hasText(url) && !url.contains(BigConstant.USERLOGIN)){
 	    	 return "redirect:"+url;
 	     }else{

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.doj.big.subex.domain.Account;
-import com.doj.big.subex.service.AccountService;
+import com.doj.big.subex.service.LoginService;
 import com.doj.big.subex.service.exception.AuthenticationException;
 import com.doj.big.subex.web.utils.BigConstant;
 
@@ -25,28 +25,27 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @Controller
-@RequestMapping(value = BigConstant.GUESTLOGINPAGE)
 public class GuestLoginController {
 	
-	public static final String ACCOUNT_ATTRIBUTE = "account";
+	public static final String EMPLOYEE_ATTRIBUTE = "employee";
 	public static final String REQUESTED_URL = "REQUESTED_URL";
 	
 	@Autowired
-	private AccountService accountService;
+	private LoginService loginService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.GUESTLOGINPAGE, method = RequestMethod.GET)
 	public ModelAndView guestLogin(ModelMap model){
 		return new ModelAndView(BigConstant.GUESTLOGIN);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.GUESTLOGINPAGE, method = RequestMethod.POST)
 	public String handleGuestLogin(BindingResult result, ModelMap model,
-			@RequestParam String username,
+			@RequestParam String email,
 			@RequestParam String password,
 			RedirectAttributes redirect,
 			HttpSession session) throws AuthenticationException{
-		Account account = this.accountService.login(username, password);
-		session.setAttribute(ACCOUNT_ATTRIBUTE, account);
+		Account account = this.loginService.login(email, password);
+		session.setAttribute(EMPLOYEE_ATTRIBUTE, account);
 		return "redirect:"+BigConstant.USERSIGNINPAGE;
 	}
 }

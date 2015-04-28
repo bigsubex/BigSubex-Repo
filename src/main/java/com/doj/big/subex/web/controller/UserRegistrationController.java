@@ -26,11 +26,10 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @Controller
-@RequestMapping(value = BigConstant.USERSIGNINPAGE)
 public class UserRegistrationController {
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView userRegistration(ModelMap model){
+	@RequestMapping(value = BigConstant.USERSIGNINPAGE, method = RequestMethod.GET)
+	public ModelAndView userRegistration( @ModelAttribute("user") User user, ModelMap model){
 		return new ModelAndView(BigConstant.USERSIGNIN);
 	}
 	
@@ -47,8 +46,8 @@ public class UserRegistrationController {
         return user;
     }
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView handleUserRegistration(@Valid @ModelAttribute User user, BindingResult result){
+	@RequestMapping(value = BigConstant.USERSIGNINPAGE, method = RequestMethod.POST)
+	public ModelAndView handleUserRegistration(@Valid @ModelAttribute("user") User user, BindingResult result){
 		if (result.hasErrors()) {
 			return new ModelAndView(BigConstant.USERSIGNIN);
         }
