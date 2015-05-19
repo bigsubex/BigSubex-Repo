@@ -18,18 +18,13 @@ import com.doj.big.subex.web.utils.BigConstant;
 @Controller
 public class ProductDocumentController {
 	
-	@RequestMapping(value = BigConstant.PRODUCTOLDPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.PRODUCT_SEARCH_PAGE, method = RequestMethod.GET)
 	public ModelAndView oldProduct(ModelMap model){
-		return new ModelAndView(BigConstant.PRODUCTOLD);
+		return new ModelAndView(BigConstant.PRODUCT_SEARCH);
 	}
 
-	@RequestMapping(value = BigConstant.PRODUCTNEWPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.PRODUCT_PROTOKOL_PAGE, method = RequestMethod.GET)
 	public ModelAndView newProduct(ModelMap model){
-		return new ModelAndView(BigConstant.PRODUCTNEW);
-	}
-	
-	@RequestMapping(value = BigConstant.SUPPLIERSHOWPAGE, method = RequestMethod.GET)
-	public ModelAndView supplierShow(ModelMap model){
-		return new ModelAndView(BigConstant.SUPPLIERSHOW);
+		return new ModelAndView(BigConstant.PRODUCT_PAGE);
 	}
 }

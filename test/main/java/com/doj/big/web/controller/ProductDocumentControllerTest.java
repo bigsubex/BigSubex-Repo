@@ -41,21 +41,15 @@ public class ProductDocumentControllerTest {
 	@Test
 	public void testOldProduct() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTOLDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTOLD));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCT_SEARCH_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCT_SEARCH));
 
 	}
 	
 	@Test
 	public void testNewProduct() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCTNEWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCTNEW));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCT_PROTOKOL_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCT_PAGE));
 
 	}
-
-	@Test
-	public void testSupplier() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.SUPPLIERSHOWPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.SUPPLIERSHOW));
-
-	}
+	
 }
