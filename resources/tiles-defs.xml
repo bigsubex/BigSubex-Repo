@@ -72,6 +72,11 @@
   	<put-attribute name="content" value="views/login/userLostPassword" type="thymeleaf"></put-attribute>
   </definition>
   
+  <definition name="user.changepassword" extends="mainTemplate" templateType="thymeleaf">
+  	<put-attribute name="title" value="Change Password : Business Information Grid" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/login/changePassword" type="thymeleaf"></put-attribute>
+  </definition>
+  
   <definition name="home" template="views/home" templateType="thymeleaf"></definition>
   
   <definition name="404" template="errors/404" templateType="thymeleaf"></definition>

@@ -32,12 +32,12 @@ public class EmployeeRegistrationController {
         binder.setValidator(new EmployeeValidator());
     }
 	
-	@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.EMPLOYEE_REGISTRATION_PAGE, method = RequestMethod.GET)
 	public ModelAndView employeeRegistration(ModelMap model){
 		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
 	}
 	
-	@RequestMapping(value = BigConstant.EMPLOYEEREGISTRATIONPAGE, method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.EMPLOYEE_REGISTRATION_PAGE, method = RequestMethod.POST)
 	public ModelAndView handleEmployeeRegistration(@Valid @ModelAttribute Employee employee, BindingResult result){
 		if (result.hasErrors()) {
 			return new ModelAndView(BigConstant.EMPLOYEESEDIT);
@@ -45,7 +45,7 @@ public class EmployeeRegistrationController {
 		return new ModelAndView(BigConstant.EMPLOYEES);
 	}
 	
-	@RequestMapping(value = BigConstant.EMPLOYEESPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.EMPLOYEES_PAGE, method = RequestMethod.GET)
 	public ModelAndView employees(ModelMap model){
 		return new ModelAndView(BigConstant.EMPLOYEES);
 	}

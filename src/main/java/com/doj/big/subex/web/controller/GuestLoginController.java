@@ -33,12 +33,12 @@ public class GuestLoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping(value = BigConstant.GUESTLOGINPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.GUEST_LOGIN_PAGE, method = RequestMethod.GET)
 	public ModelAndView guestLogin(ModelMap model){
 		return new ModelAndView(BigConstant.GUESTLOGIN);
 	}
 	
-	@RequestMapping(value = BigConstant.GUESTLOGINPAGE, method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.GUEST_LOGIN_PAGE, method = RequestMethod.POST)
 	public String handleGuestLogin(BindingResult result, ModelMap model,
 			@RequestParam String email,
 			@RequestParam String password,
@@ -46,6 +46,6 @@ public class GuestLoginController {
 			HttpSession session) throws AuthenticationException{
 		Account account = this.loginService.login(email, password);
 		session.setAttribute(EMPLOYEE_ATTRIBUTE, account);
-		return "redirect:"+BigConstant.USERSIGNINPAGE;
+		return "redirect:"+BigConstant.USER_SIGNIN_PAGE;
 	}
 }

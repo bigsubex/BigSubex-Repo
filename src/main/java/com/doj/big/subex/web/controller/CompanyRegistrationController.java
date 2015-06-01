@@ -26,7 +26,7 @@ import com.doj.big.subex.web.utils.BigConstant;
  *
  */
 @Controller
-@RequestMapping(value = BigConstant.USERCOMPANYPAGE)
+@RequestMapping(value = BigConstant.USER_COMPANY_PAGE)
 public class CompanyRegistrationController {
 	
 	@InitBinder

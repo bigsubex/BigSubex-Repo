@@ -17,7 +17,8 @@ public interface BigConstant {
 	String PRODUCT_SEARCH = "products.old";
 	String PRODUCT_DETAIL = "products.new";
 	String SUPPLIERSHOW = "supplier.show";
-	String FORGOTPASSWORD = "user.lostpassword";
+	String FORGOT_PASSWORD = "user.lostpassword";
+	String CHANGE_PASSWORD = "user.changepassword";
 	
 	String ERROR404 = "404";
 	String ERRORPAGE = "/*";
@@ -25,18 +26,19 @@ public interface BigConstant {
 	String ROOTPAGE = "/";
 	String INDEXPAGE = "/indexc";
 	String USER = "/user";
-	String LOGINPAGE = "/login";
-	String USERLOGINPAGE = "/login/user";
+	String LOGIN_PAGE = "/login";
+	String USER_LOGIN_PAGE = "/login/user";
 	String GUEST = "/guest";
-	String GUESTLOGINPAGE = "/login/guest";
-	String USERSIGNINPAGE = "/user/register";
-	String USERCOMPANYPAGE = "/company/register";
-	String EMPLOYEEREGISTRATIONPAGE = "/employee/register";
-	String EMPLOYEESPAGE = "/employees";
+	String GUEST_LOGIN_PAGE = "/login/guest";
+	String USER_SIGNIN_PAGE = "/user/register";
+	String USER_COMPANY_PAGE = "/company/register";
+	String EMPLOYEE_REGISTRATION_PAGE = "/employee/register";
+	String EMPLOYEES_PAGE = "/employees";
 	String PRODUCT_SEARCH_PAGE = "/products/search";
 	String PRODUCT_DETAIL_PAGE = "/products";
-	String SUPPLIERSHOWPAGE = "/supplier/show";
-	String FORGOTPASSWORDPAGE = "/user/lostpassword";
+	String SUPPLIER_SHOW_PAGE = "/supplier/show";
+	String FORGOT_PASSWORD_PAGE = "/user/lostpassword";
+	String CHANGE_PASSWORD_PAGE = "/change-password";
 	
 	String IMAGEROOTURL = "images/";
 	String JSROOTURL = "js/";

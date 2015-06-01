@@ -33,12 +33,12 @@ public class UserLoginController {
 	 @Autowired
 	 private LoginService loginService;
 	 
-	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.USER_LOGIN_PAGE, method = RequestMethod.GET)
 	public ModelAndView userLogin(ModelMap model, HttpSession session){
 		return new ModelAndView(BigConstant.USERLOGIN);
 	}
 	
-	@RequestMapping(value = BigConstant.USERLOGINPAGE, method = RequestMethod.POST)
+	@RequestMapping(value = BigConstant.USER_LOGIN_PAGE, method = RequestMethod.POST)
 	public String handleUserLogin(ModelMap model,
 			@RequestParam String email,
 			@RequestParam String password,
@@ -56,8 +56,13 @@ public class UserLoginController {
 	     }
 	}
 	
-	@RequestMapping(value = BigConstant.FORGOTPASSWORDPAGE, method = RequestMethod.GET)
+	@RequestMapping(value = BigConstant.FORGOT_PASSWORD_PAGE, method = RequestMethod.GET)
 	public ModelAndView forgotPassword(ModelMap model){
-		return new ModelAndView(BigConstant.FORGOTPASSWORD);
+		return new ModelAndView(BigConstant.FORGOT_PASSWORD);
+	}
+	
+	@RequestMapping(value = BigConstant.CHANGE_PASSWORD_PAGE, method = RequestMethod.GET)
+	public ModelAndView changePassword(ModelMap model){
+		return new ModelAndView(BigConstant.CHANGE_PASSWORD);
 	}
 }

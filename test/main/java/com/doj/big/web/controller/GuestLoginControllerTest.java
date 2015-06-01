@@ -37,7 +37,7 @@ public class GuestLoginControllerTest {
 	@Test
 	public void testGuestLoginPage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(guestLoginController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.GUESTLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.GUESTLOGIN));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.GUEST_LOGIN_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.GUESTLOGIN));
 
 	}
 }

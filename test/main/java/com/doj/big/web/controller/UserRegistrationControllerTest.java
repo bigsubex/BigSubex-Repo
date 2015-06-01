@@ -37,7 +37,7 @@ public class UserRegistrationControllerTest {
 	@Test
 	public void testUserRegistration() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userRegistrationController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERSIGNINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERSIGNIN));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USER_SIGNIN_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERSIGNIN));
 
 	}
 }

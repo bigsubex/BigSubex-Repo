@@ -37,7 +37,7 @@ public class CompanyRegistrationControllerTest {
 	@Test
 	public void testCompanyRegistration() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(companyRegistrationController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERCOMPANYPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERCOMPANY));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USER_COMPANY_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERCOMPANY));
 
 	}
 }

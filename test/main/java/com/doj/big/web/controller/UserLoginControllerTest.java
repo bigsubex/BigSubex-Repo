@@ -44,7 +44,7 @@ public class UserLoginControllerTest {
 	@Test
 	public void testUserLoginPage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USERLOGINPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERLOGIN));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USER_LOGIN_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERLOGIN));
 
 	}
 	
@@ -91,7 +91,14 @@ public class UserLoginControllerTest {
 	@Test
 	public void testForgotPassword() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.FORGOTPASSWORDPAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.FORGOTPASSWORD));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.FORGOT_PASSWORD_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.FORGOT_PASSWORD));
+
+	}
+	
+	@Test
+	public void testChangePassword() throws Exception {
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.CHANGE_PASSWORD_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.CHANGE_PASSWORD));
 
 	}
 	
