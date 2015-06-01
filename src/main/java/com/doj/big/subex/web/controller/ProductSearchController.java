@@ -3,7 +3,6 @@
  */
 package com.doj.big.subex.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,7 @@ import com.doj.big.subex.web.utils.BigConstant;
 @Controller
 public class ProductSearchController {
 	
-	@Autowired
+	//@Autowired
 	ProductSearchService productSearchService;
 	
 	@RequestMapping(value = BigConstant.PRODUCT_SEARCH_PAGE, method = RequestMethod.GET)

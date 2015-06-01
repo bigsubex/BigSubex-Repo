@@ -3,7 +3,7 @@
  */
 package com.doj.big.subex.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,9 +16,10 @@ import com.doj.big.subex.web.utils.BigConstant;
  * @author Dinesh.Rajput
  *
  */
+@Controller
 public class ProductDetailController {
 	
-	@Autowired
+	//@Autowired
 	ProductDetailService productDetailService;
 	
 	@RequestMapping(value = BigConstant.PRODUCT_DETAIL_PAGE, method = RequestMethod.GET)

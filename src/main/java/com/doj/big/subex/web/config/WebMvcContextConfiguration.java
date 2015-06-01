@@ -184,7 +184,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
     }*/
     
     /*@Bean
-   	public EntityManagerFactory getEntityManagerFactory() {
-   		return new LocalContainerEntityManagerFactoryBean();
+   	public LocalContainerEntityManagerFactoryBean getEntityManagerFactory() {
+   		return  new LocalContainerEntityManagerFactoryBean();
    	}*/
 }
