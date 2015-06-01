@@ -15,7 +15,7 @@ public interface BigConstant {
 	String EMPLOYEESEDIT = "employees.edit";
 	String EMPLOYEES = "list.employees";
 	String PRODUCT_SEARCH = "products.old";
-	String PRODUCT_PAGE = "products.new";
+	String PRODUCT_DETAIL = "products.new";
 	String SUPPLIERSHOW = "supplier.show";
 	String FORGOTPASSWORD = "user.lostpassword";
 	
@@ -34,7 +34,7 @@ public interface BigConstant {
 	String EMPLOYEEREGISTRATIONPAGE = "/employee/register";
 	String EMPLOYEESPAGE = "/employees";
 	String PRODUCT_SEARCH_PAGE = "/products/search";
-	String PRODUCT_PROTOKOL_PAGE = "/products";
+	String PRODUCT_DETAIL_PAGE = "/products";
 	String SUPPLIERSHOWPAGE = "/supplier/show";
 	String FORGOTPASSWORDPAGE = "/user/lostpassword";
 	

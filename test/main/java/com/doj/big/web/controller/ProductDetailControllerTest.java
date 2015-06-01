@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.doj.big.subex.web.config.WebMvcContextConfiguration;
-import com.doj.big.subex.web.controller.ProductDocumentController;
+import com.doj.big.subex.web.controller.ProductDetailController;
 import com.doj.big.subex.web.utils.BigConstant;
 
 /**
@@ -30,26 +30,18 @@ import com.doj.big.subex.web.utils.BigConstant;
 	@ContextConfiguration(classes = { WebMvcContextConfiguration.class }),
 	@ContextConfiguration(locations = "classpath:tiles-defs.xml")
 })
-public class ProductDocumentControllerTest {
+public class ProductDetailControllerTest {
 	
 	@Autowired
-	ProductDocumentController productDocumentController;
+	ProductDetailController productDetailController;
 	
 	@Autowired
     private WebApplicationContext context;
 	
 	@Test
-	public void testOldProduct() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCT_SEARCH_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCT_SEARCH));
-
-	}
-	
-	@Test
 	public void testNewProduct() throws Exception {
-		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDocumentController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCT_PROTOKOL_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCT_PAGE));
+		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(productDetailController).build();
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.PRODUCT_DETAIL_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.PRODUCT_DETAIL));
 
 	}
-	
 }
