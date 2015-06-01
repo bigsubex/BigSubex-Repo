@@ -54,12 +54,12 @@
   
   <definition name="products.old" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="Old Products : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/product/oldProducts" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/product/productSearch" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="products.new" extends="mainTemplate" templateType="thymeleaf">
   	<put-attribute name="title" value="New Products : Business Information Grid" type="thymeleaf"></put-attribute>
-  	<put-attribute name="content" value="views/product/products" type="thymeleaf"></put-attribute>
+  	<put-attribute name="content" value="views/product/productDetail" type="thymeleaf"></put-attribute>
   </definition>
   
   <definition name="supplier.show" extends="mainTemplate" templateType="thymeleaf">
