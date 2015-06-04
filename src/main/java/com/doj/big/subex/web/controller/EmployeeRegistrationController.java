@@ -34,13 +34,13 @@ public class EmployeeRegistrationController {
 	
 	@RequestMapping(value = BigConstant.EMPLOYEE_REGISTRATION_PAGE, method = RequestMethod.GET)
 	public ModelAndView employeeRegistration(ModelMap model){
-		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
+		return new ModelAndView(BigConstant.EMPLOYEE_REGISTRATION);
 	}
 	
 	@RequestMapping(value = BigConstant.EMPLOYEE_REGISTRATION_PAGE, method = RequestMethod.POST)
 	public ModelAndView handleEmployeeRegistration(@Valid @ModelAttribute Employee employee, BindingResult result){
 		if (result.hasErrors()) {
-			return new ModelAndView(BigConstant.EMPLOYEESEDIT);
+			return new ModelAndView(BigConstant.EMPLOYEE_REGISTRATION);
 		}
 		return new ModelAndView(BigConstant.EMPLOYEES);
 	}

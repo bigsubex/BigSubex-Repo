@@ -35,7 +35,7 @@ public class GuestLoginController {
 	
 	@RequestMapping(value = BigConstant.GUEST_LOGIN_PAGE, method = RequestMethod.GET)
 	public ModelAndView guestLogin(ModelMap model){
-		return new ModelAndView(BigConstant.GUESTLOGIN);
+		return new ModelAndView(BigConstant.GUEST_LOGIN);
 	}
 	
 	@RequestMapping(value = BigConstant.GUEST_LOGIN_PAGE, method = RequestMethod.POST)
@@ -46,6 +46,6 @@ public class GuestLoginController {
 			HttpSession session) throws AuthenticationException{
 		Account account = this.loginService.login(email, password);
 		session.setAttribute(EMPLOYEE_ATTRIBUTE, account);
-		return "redirect:"+BigConstant.USER_SIGNIN_PAGE;
+		return "redirect:"+BigConstant.USER_REGISTRATION_PAGE;
 	}
 }

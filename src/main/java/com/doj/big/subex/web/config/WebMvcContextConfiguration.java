@@ -92,9 +92,9 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 		SimpleMappingExceptionResolver exceptionResolver;
 		exceptionResolver = new SimpleMappingExceptionResolver();
 		Properties mappings = new Properties();
-		mappings.setProperty("AuthenticationException", BigConstant.USERLOGIN);
+		mappings.setProperty("AuthenticationException", BigConstant.USER_LOGIN);
 		Properties statusCodes = new Properties();
-		mappings.setProperty(BigConstant.USERLOGIN, String.valueOf(HttpServletResponse.SC_UNAUTHORIZED));
+		mappings.setProperty(BigConstant.USER_LOGIN, String.valueOf(HttpServletResponse.SC_UNAUTHORIZED));
 		exceptionResolver.setExceptionMappings(mappings);
 		exceptionResolver.setStatusCodes(statusCodes);
 		return exceptionResolver;

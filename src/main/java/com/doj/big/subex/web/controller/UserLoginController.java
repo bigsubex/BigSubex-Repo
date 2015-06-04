@@ -35,7 +35,7 @@ public class UserLoginController {
 	 
 	@RequestMapping(value = BigConstant.USER_LOGIN_PAGE, method = RequestMethod.GET)
 	public ModelAndView userLogin(ModelMap model, HttpSession session){
-		return new ModelAndView(BigConstant.USERLOGIN);
+		return new ModelAndView(BigConstant.USER_LOGIN);
 	}
 	
 	@RequestMapping(value = BigConstant.USER_LOGIN_PAGE, method = RequestMethod.POST)
@@ -49,7 +49,7 @@ public class UserLoginController {
 	     session.removeAttribute(REQUESTED_URL); 
 	     Account account = this.loginService.login(email, password);
 	     session.setAttribute(EMPLOYEE_ATTRIBUTE, account);
-	     if(StringUtils.hasText(url) && !url.contains(BigConstant.USERLOGIN)){
+	     if(StringUtils.hasText(url) && !url.contains(BigConstant.USER_LOGIN)){
 	    	 return "redirect:"+url;
 	     }else{
 	    	 return "redirect:"+BigConstant.INDEXPAGE;

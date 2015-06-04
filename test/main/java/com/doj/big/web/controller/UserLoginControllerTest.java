@@ -44,7 +44,7 @@ public class UserLoginControllerTest {
 	@Test
 	public void testUserLoginPage() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userLoginController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USER_LOGIN_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USERLOGIN));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.USER_LOGIN_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.USER_LOGIN));
 
 	}
 	

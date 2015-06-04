@@ -8,11 +8,11 @@ public interface BigConstant {
 	
 	String HOME = "home";
 	String INDEX = "index";
-	String USERLOGIN = "userlogin";
-	String GUESTLOGIN = "guestlogin";
-	String USERSIGNIN = "user.register";
-	String USERCOMPANY = "user.register.company";
-	String EMPLOYEESEDIT = "employees.edit";
+	String USER_LOGIN = "userlogin";
+	String GUEST_LOGIN = "guestlogin";
+	String USER_REGISTRATION = "user.register";
+	String COMPANY_REGISTRATION = "user.register.company";
+	String EMPLOYEE_REGISTRATION = "employees.edit";
 	String EMPLOYEES = "list.employees";
 	String PRODUCT_SEARCH = "products.old";
 	String PRODUCT_DETAIL = "products.new";
@@ -30,7 +30,7 @@ public interface BigConstant {
 	String USER_LOGIN_PAGE = "/login/user";
 	String GUEST = "/guest";
 	String GUEST_LOGIN_PAGE = "/login/guest";
-	String USER_SIGNIN_PAGE = "/user/register";
+	String USER_REGISTRATION_PAGE = "/user/register";
 	String USER_COMPANY_PAGE = "/company/register";
 	String EMPLOYEE_REGISTRATION_PAGE = "/employee/register";
 	String EMPLOYEES_PAGE = "/employees";

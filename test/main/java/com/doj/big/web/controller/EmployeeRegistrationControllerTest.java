@@ -37,7 +37,7 @@ public class EmployeeRegistrationControllerTest {
 	@Test
 	public void testEmployeeRegistration() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(employeeRegistrationController).build();
-		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEE_REGISTRATION_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEESEDIT));
+		mockMvc.perform(MockMvcRequestBuilders.get(BigConstant.EMPLOYEE_REGISTRATION_PAGE)).andExpect(MockMvcResultMatchers.view().name(BigConstant.EMPLOYEE_REGISTRATION));
 
 	}
 	

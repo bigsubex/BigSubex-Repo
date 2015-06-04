@@ -44,14 +44,14 @@ public class CompanyRegistrationController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView companyRegistration(ModelMap model){
-		return new ModelAndView(BigConstant.USERCOMPANY);
+		return new ModelAndView(BigConstant.COMPANY_REGISTRATION);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView handleCompanyRegistration(@Valid @ModelAttribute Company company, BindingResult result){
 		if (result.hasErrors()) {
-			return new ModelAndView(BigConstant.USERCOMPANY);
+			return new ModelAndView(BigConstant.COMPANY_REGISTRATION);
 		}
-		return new ModelAndView(BigConstant.EMPLOYEESEDIT);
+		return new ModelAndView(BigConstant.EMPLOYEE_REGISTRATION);
 	}
 }
